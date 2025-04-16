@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Weather App";
+    Layout = "_Layout";  // Use the default shared layout
+}
+
+<!-- Link to site.css in wwwroot -->
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/js/site.js" asp-append-version="true" />
+
+<div class="container">
+    <div class="weather-container">
+        <h2>Weather Forecast</h2>
+        <form method="post" asp-action="GetWeather" class="weather-form">
+            <input type="text" name="city" placeholder="Enter city" required class="weather-input" />
+            <button type="submit" class="weather-button">Check Weather</button>
+        </form>
+
+        @if (Model != null)
+        {
+            <div class="weather-info">
+                <h3>City: @Model["name"]</h3>
+                <p>Temperature: @Model["main"]["temp"]°C</p>
+                <p>Condition: @Model["weather"][0]["description"]</p>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Weather App</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#">Weather App<span style="color: #009688;">.</span></a>
+        </div>
+        <i class="fas fa-bars hamburger" onclick="toggleMenu()"></i>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <main role="main" class="container">
+        @RenderBody()  <!-- The body content (from Index.cshtml) will be rendered here -->
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2025 Weather App. All rights reserved.</p>
+    </footer>
+
+    <script>
+    function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('show');
+    }
+</script>
+
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
